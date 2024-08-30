@@ -1,19 +1,33 @@
-# My-Projects
+#About this project:
 
-Hey! I'm Shaurya, a 19 y/o from New Delhi, India. I love exploring new ideas, meeting new people, solving problems, and building cool projects! I'm really interested in everything AI, BCIs, Blockchain and Biological Computing. I am on an exhilarating journey to revolutionize the field of medical science and technology. As a dedicated researcher, my focus lies in integrating BCIs, optogenetics, and AI to create a dynamic medical system. My ultimate goal is to develop a groundbreaking solution that will help cure post-brain stroke paralysis without the need for therapy. By pushing the boundaries of innovation, I aim to improve the lives of countless individuals and make a lasting impact on the world.
+1. cv2 is the opencv library module in python. This library provides function for image processing and computer vision task.
 
-🚀 Entrepreneurial Spirit:
-In addition to my research endeavors, I am a driven entrepreneur. Currently, I am spearheading the development of a startup based on Maps and safety. With a passion for creating innovative solutions, I strive to build products that enhance people's lives and reshape industries.
+2. face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+^^ cv2.cascade classifier is the function that loads up pretrained model for detecting objects. In this case it is used for face detection.
 
-🧬 Biological Computing:
-One of my latest fascinations lies in the intriguing field of DNA computing. I am delving into the realm of biological computing, exploring the remarkable potential of utilizing DNA as a computational tool. By harnessing the power of nature, I aim to unlock new frontiers in information processing and problem-solving. Stay tuned for an exciting project that I'm working on in this captivating field!
+3. cv2.data.haarcascades is a path to the directory containing haarcascade file provided by opencv. 
 
-🌍 Empowering Education:
-I firmly believe in the power of education to transform lives. As a devoted advocate, I have actively contributed to the community by founding educational NGOs. Through these initiatives, I have had the privilege of teaching and designing computer science curriculums for over 300 underprivileged children in Delhi. Empowering others with knowledge and skills is a cause close to my heart.
+4. haarcascade_frontalface_default.xml this xml file contains the trained model data for detecting frontal faces.
 
-🎙️ Sustainability Podcast:
-Passionate about sustainable practices and environmental consciousness, I am currently in the process of launching my own sustainability podcast. Through captivating conversations and thought-provoking insights, I aim to inspire individuals and organizations to make a positive impact on our planet. Join me on this exciting journey towards a greener future.
+5. cv2.VideoCapture(0) opens the default camera on your system. The argument zero refers to the first camera device. If you have multiple cameras, you can specify other indices eg, 1, 2, 3.
 
-I look forward to connecting with like-minded individuals who share a passion for pushing boundaries and creating a better world. Feel free to reach out to me, and I would love to chat 👋!
+5. Loop to continuously get frames - 
+while True:
+    ret, frame = cap.read()
+cap.read() captures the frames from the webcam, it returns 2 values:
+I. ret - this is a boolean indicating if the frame was captured successfully.
+II. frame - captures frames itself
 
-📍 New Delhi 🇮🇳 | Seattle 🇺🇲| 📧 shaurya4@uw.edu
+6. Convert frame to grayscale - 
+ gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+cv2.cvtColor converts the image from one color space to another.
+cv2.COLOR_BGR2GRAY specifies the conversion from BGR color space to grayscale
+Note: grayscale images are simpler and into the efficiency of face detection
+
+7. facecascade.detectmultiscale - detects the object faces in the image
+
+8. scale factor specifies how much the image can be reduced at each image scale. 1.1 means image size is reduced by 10% at each scale. 
+
+9. minneighbors specifies how many neighbors each candidate rectangle should have to retain it. 
+
+10. minsize - minimum size of the face detect smaller values detect smaller faces.
